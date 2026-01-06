@@ -19,7 +19,7 @@ const SignInPage = () => {
         <p className="text-zinc-400 my-1">
           Don't have an account?{" "}
           <Link href="/sign-up" className="underline text-black">
-            Create one
+            Create one!
           </Link>
         </p>
         <div className="space-y-2">
