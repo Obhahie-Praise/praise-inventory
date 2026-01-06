@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import MobileSideBar from '@/components/MobileSideBar';
+import SideBarWrapper from "@/components/SideBarWrapper";
 import { auth } from '@/lib/auth';
 import { headers } from 'next/headers';
 import React from 'react'
@@ -16,8 +16,8 @@ const SettingPage = async () => {
   const user = session?.user;
   return (
     <div className="min-h-screen bg-zinc-100 flex">
-      <MobileSideBar currentPath="/settings" />
-      <main className="flex-1 p-4 sm:p-6 lg:p-8">
+      <SideBarWrapper currentPath="/settings" />
+      <main className="flex-1 lg:ml-60 p-4 sm:p-6 lg:p-8">
         <header className="mb-6 sm:mb-8">
           <div className="flex items-center justify-between">
             <div>

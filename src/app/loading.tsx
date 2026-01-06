@@ -1,10 +1,9 @@
-import SideBar from "@/components/SideBar";
 import { Loader2 } from "lucide-react";
 import React from "react";
 
 const Loader = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-zinc-100">
+    <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
       <Loader2
         className="animate-spin"
         width={50}

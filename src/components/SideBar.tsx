@@ -30,7 +30,7 @@ const SideBar = ({currentPath = "/dashboard"}: {currentPath?: string}) => {
 
 
   return (
-    <div className='w-60 bg-zinc-900 text-white min-h-screen p-6 flex flex-col'>
+    <div className='w-60 bg-zinc-900 fixed top-0 left-0 text-white h-screen p-6 flex flex-col'>
         <div className="mb-8">
             <div className="flex items-center space-x-2 mb-4">
                 <BoxIcon width={30} height={30} strokeWidth={2} />

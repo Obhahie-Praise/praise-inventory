@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import ProductsCharts from "@/components/ProductsCharts";
-import MobileSideBar from "@/components/MobileSideBar";
+import SideBarWrapper from "@/components/SideBarWrapper";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 import { TrendingUp } from "lucide-react";
@@ -83,8 +83,8 @@ const DashboardPage = async () => {
   //console.log(totalProducts, recent, allProducts, totalValue);
   return (
     <div className="min-h-screen bg-gray-100 flex">
-      <MobileSideBar currentPath="/dashboard" />
-      <main className="flex-1 p-4 sm:p-6 lg:p-8">
+      <SideBarWrapper currentPath="/dashboard" />
+      <main className="flex-1 lg:ml-60 p-4 sm:p-6 lg:p-8">
         <header className="mb-6 sm:mb-8">
           <div className="flex items-center justify-between">
             <div className="">

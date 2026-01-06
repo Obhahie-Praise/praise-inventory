@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Pagination from "@/components/Pagination";
-import MobileSideBar from "@/components/MobileSideBar";
+import SideBarWrapper from "@/components/SideBarWrapper";
 import { deleteProduct } from "@/lib/action/auth-actions";
 import { auth } from "@/lib/auth";
 import prisma from "@/lib/prisma";
@@ -41,8 +41,8 @@ const InventoryPage = async ({
   const paginatedProducts = items.slice((page - 1) * pageSize, page * pageSize);
   return (
     <div className="min-h-screen bg-zinc-100 flex">
-      <MobileSideBar currentPath="/inventory" />
-      <main className="flex-1 p-4 sm:p-6 lg:p-8">
+      <SideBarWrapper currentPath="/inventory" />
+      <main className="flex-1 lg:ml-60 p-4 sm:p-6 lg:p-8">
         <header className="mb-6 sm:mb-8">
           <div className="flex items-center justify-between">
             <div>

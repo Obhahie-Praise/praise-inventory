@@ -5,7 +5,7 @@ import { signOut } from "@/lib/auth-client";
 import { useSession } from "@/lib/auth-client";
 import { LogOut, Settings, User, UserRound } from "lucide-react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const UserButton = () => {
@@ -51,7 +51,9 @@ const UserButton = () => {
           </div>
           <button
             className="flex items-center space-x-2 w-full cursor-pointer py-2 border-t border-zinc-300 text-red-500" 
-            onClick={() => signOut()}
+            onClick={() => {signOut()
+              redirect('sign-in');
+            }}
           >
             <LogOut width={17} height={17} className="" />
             <p className="font-medium text-sm">Sign Out</p>
