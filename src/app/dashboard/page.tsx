@@ -36,16 +36,16 @@ const DashboardPage = async () => {
     select: { price: true, quantity: true, createdAt: true },
   });
   const totalValue = allProducts.reduce(
-    (sum, product) => sum + Number(product.price) * Number(product.quantity),
+    (sum: number, product: typeof allProducts[number]) => sum + Number(product.price) * Number(product.quantity),
     0
   );
 
-  const inStockCount = allProducts.filter((p) => Number(p.quantity) > 5).length;
+  const inStockCount = allProducts.filter((p: typeof allProducts[number]) => Number(p.quantity) > 5).length;
   const lowStockCount = allProducts.filter(
-    (p) => Number(p.quantity) <= 5 && Number(p.quantity) >= 1
+    (p: typeof allProducts[number]) => Number(p.quantity) <= 5 && Number(p.quantity) >= 1
   ).length;
   const outOfStockCount = allProducts.filter(
-    (p) => Number(p.quantity) === 0
+    (p: typeof allProducts[number]) => Number(p.quantity) === 0
   ).length;
 
   const inStockPercentage =
@@ -70,7 +70,7 @@ const DashboardPage = async () => {
       2,
       "0"
     )}/${String(weekStart.getDate() + 1).padStart(2, "0")}`;
-    const weekProduct = allProducts.filter((product) => {
+    const weekProduct = allProducts.filter((product: typeof allProducts[number]) => {
       const productDate = new Date(product.createdAt);
       return productDate >= weekStart && productDate <= weekEnd;
     });
@@ -173,7 +173,7 @@ const DashboardPage = async () => {
               </h2>
             </div>
             <div className="space-y-3">
-              {recent.map((product, key) => {
+              {recent.map((product: typeof recent[number], key: number) => {
                 const stockLevel =
                   product.quantity === 0
                     ? 0
@@ -197,14 +197,14 @@ const DashboardPage = async () => {
                   >
                     <div className="flex items-center space-x-3 flex-1 min-w-0">
                       <div
-                        className={`w-3 h-3 rounded-full flex-shrink-0 ${bgColors[stockLevel]}`}
+                        className={`w-3 h-3 rounded-full shrink-0 ${bgColors[stockLevel]}`}
                       />
                       <span className="font-medium text-zinc-800 truncate">
                         {product.name}
                       </span>
                     </div>
                     <div
-                      className={`font-medium ${textColors[stockLevel]} ml-2 flex-shrink-0`}
+                      className={`font-medium ${textColors[stockLevel]} ml-2 shrink-0`}
                     >
                       {product.quantity} units
                     </div>
@@ -244,19 +244,19 @@ const DashboardPage = async () => {
             <div className="mt-4 sm:mt-6 space-y-2">
               <div className="flex items-center justify-between text-xs sm:text-sm text-zinc-600">
                 <div className="flex items-center space-x-2 min-w-0">
-                  <div className="w-3 h-3 rounded-full bg-zinc-800 flex-shrink-0" />
+                  <div className="w-3 h-3 rounded-full bg-zinc-800 shrink-0" />
                   <span className="truncate">In Stock ({inStockPercentage}%)</span>
                 </div>
               </div>
               <div className="flex items-center justify-between text-xs sm:text-sm text-zinc-600">
                 <div className="flex items-center space-x-2 min-w-0">
-                  <div className="w-3 h-3 rounded-full bg-zinc-600 flex-shrink-0" />
+                  <div className="w-3 h-3 rounded-full bg-zinc-600 shrink-0" />
                   <span className="truncate">Low Stock ({lowStockPercentage}%)</span>
                 </div>
               </div>
               <div className="flex items-center justify-between text-xs sm:text-sm text-zinc-600">
                 <div className="flex items-center space-x-2 min-w-0">
-                  <div className="w-3 h-3 rounded-full bg-zinc-300 flex-shrink-0" />
+                  <div className="w-3 h-3 rounded-full bg-zinc-300 shrink-0" />
                   <span className="truncate">Out of Stock ({inStockPercentage}%)</span>
                 </div>
               </div>
