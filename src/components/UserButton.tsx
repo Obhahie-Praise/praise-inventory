@@ -52,7 +52,7 @@ const UserButton = () => {
           <button
             className="flex items-center space-x-2 w-full cursor-pointer py-2 border-t border-zinc-300 text-red-500" 
             onClick={() => {signOut()
-              redirect('sign-in');
+              redirect('/sign-in');
             }}
           >
             <LogOut width={17} height={17} className="" />
