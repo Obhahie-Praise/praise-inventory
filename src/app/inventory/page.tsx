@@ -112,7 +112,7 @@ const InventoryPage = async ({
                   </tbody>
                 ) : (
                   <tbody className="bg-white divide-y divide-zinc-300">
-                    {paginatedProducts.map((product, key) => {
+                    {paginatedProducts.map((product: typeof items[number], key: number) => {
                       return (
                         <tr className="hover:bg-zinc-100 text-xs sm:text-sm" key={key}>
                           <td className="px-3 sm:px-6 py-4 text-zinc-600 max-w-xs truncate">
