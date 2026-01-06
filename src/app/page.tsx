@@ -1,65 +1,42 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { BoxIcon } from "lucide-react";
+import LightRays from "../components/LightRays"
+import Link from "next/link";
+import React from "react";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Home | Inventory Management",
+  description: "Manage inventory the smart way with our intelligent inventory management system for personal and business needs.",
+};
+
+const HomePage = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="min-h-screen overflow-x-hidden">
+      <div className="absolute top-0 h-screen -z-50 w-full">
+        <LightRays mouseInfluence={0.05} raysSpeed={2.5} />
+      </div>
+      <header className="flex items-center justify-between px-4 sm:px-6 lg:mx-40 my-8 sm:my-15 lg:px-5 lg:py-3 border border-zinc-400 rounded-xl backdrop-blur-2xl">
+        <div className="flex gap-2 items-center">
+          <BoxIcon className="h-6 w-6 sm:h-8 sm:w-8" strokeWidth={1.6} />
+          <h1 className="font-medium text-lg sm:text-xl lg:text-2xl">Inventory</h1>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="flex gap-2 sm:gap-4 flex-wrap">
+          <Link href="/sign-in" className="px-2 sm:px-3 py-1 rounded-lg text-black font-normal text-sm sm:text-base border-2 border-zinc-400 hover:border-zinc-400 transition-colors">Sign In</Link>
+          <Link href="/sign-up" className="px-2 sm:px-3 py-1 bg-black rounded-lg text-white font-normal text-sm sm:text-base hover:bg-zinc-700 transition-colors">Sign Up</Link>
         </div>
-      </main>
+      </header>
+
+      <div className="mt-12 sm:mt-20 lg:mt-30 px-4 sm:px-6">
+        <h2 className="text-center text-3xl sm:text-4xl lg:text-6xl font-medium capitalize">Manage inventory the smart way.</h2>
+        <p className="text-center mt-3 sm:mt-4 text-base sm:text-lg lg:text-xl text-zinc-500">Smart inventory management for your personal and business needs</p>
+
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mt-6 sm:mt-8 flex-wrap">
+          <Link href="/about" className="px-3 py-1 rounded-lg text-black font-normal text-sm sm:text-base border-2 border-zinc-400 hover:border-zinc-400 transition-colors text-center">Learn More</Link>
+          <Link href="/sign-up" className="px-3 py-1 bg-black rounded-lg text-white font-normal text-sm sm:text-base hover:bg-zinc-700 transition-colors text-center">Get Started</Link>
+        </div>
+      </div>
     </div>
   );
-}
+};
+
+export default HomePage;
